@@ -6,7 +6,7 @@ $(document).ready(function(){
 function giphyURLWithSearchTerm(searchTerm) {
     // write a function that will return a url for the giphy API with
     // the searchTerm provided in the parameters
-var searchTerm = $("input").val();
+var searchTerm = $(".form-control").val();
 var url= "https://api.giphy.com/v1/stickers/search?q=" + searchTerm + "&api_key=dc6zaTOxFJmzC";
     return url;
 
@@ -16,7 +16,9 @@ var url= "https://api.giphy.com/v1/stickers/search?q=" + searchTerm + "&api_key=
 function appendImageToBody(srcURL) {
     // write a function that will append an <img> to the body with the
     // URL provided in the parameters
-    $('body').append('<img src=' + srcURL + '>');
+   
+     $('.rowgallery').append('<img src=' + srcURL + '>');
+     $('.rowgallery').css("text-align","center");
 }
 
 function callGiphyAPIWithSearchTerm(searchTerm) {
@@ -35,8 +37,9 @@ function callGiphyAPIWithSearchTerm(searchTerm) {
 }
 
 //Add a click handler beloe to call the function when the button is clicked
-$('button').click(function() {
-    var searchTerm = $('input').val();
+$('.btn1').click(function() {
+    $('.text-center').hide()
+    var searchTerm = $('.form-control').val();
     callGiphyAPIWithSearchTerm("searchTerm");
 });
 
